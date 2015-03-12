@@ -1,0 +1,31 @@
+{
+  "name": "zMVC",
+  "version": "0.5.0",
+  "description": "A lightweight framework using both MVC and publish-subscribe patterns to link its tiers",
+  "main": "zmvc.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/igorski/zMVC.git"
+  },
+  "keywords": [
+    "light",
+    "framework",
+    "mvc",
+    "model",
+    "view",
+    "controller",
+    "publish",
+    "subscribe",
+    "pubsub"
+  ],
+  "author": "Igor Zinken",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igorski/zMVC/issues"
+  },
+  "homepage": "https://github.com/igorski/zMVC",
+  "devDependencies" : {
+    "zjslib" : "^0.1.0",
+    "pubsub-js": "^1.5.0"
+  }
+}
