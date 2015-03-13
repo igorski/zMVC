@@ -157,7 +157,7 @@ The "public" methods of a Controller :
     init();
     
 Invoked automatically whenever the framework creates a new instance of the Controller (when its associated View is added to
-the applications HTML document). This method will invoke the _subscribe()_- and _onInit()-methods (see below). It is recommended
+the applications HTML document). This method will invoke the _subscribe()_- and _onInit_()-methods (see below). It is recommended
 not to override this method in your inheriting prototypes, but override _onInit()_ instead.
 
     dispose();
