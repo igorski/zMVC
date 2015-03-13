@@ -49,6 +49,8 @@ Controller.prototype.init = function()
         this._tokens.push( Pubsub.subscribe( notification, handler ));
 
     }.bind( this ));
+
+    this.onInit();
 };
 
 /**
@@ -69,6 +71,8 @@ Controller.prototype.dispose = function()
     });
 
     Inheritance.super( this, "dispose" );
+
+    this.onDispose();
 };
 
 /**
@@ -125,4 +129,24 @@ Controller.prototype.getModel = function( aModelName )
 Controller.prototype.broadcast = function( aMessageType, aMessageData )
 {
     Pubsub.publish( aMessageType, aMessageData );
+};
+
+/**
+ * invoked when the Controller initializes
+ *
+ * @protected
+ */
+Controller.prototype.onInit = function()
+{
+    // override in derived prototypes
+};
+
+/**
+ * invoked when the Controller is disposed
+ *
+ * @protected
+ */
+Controller.prototype.onDispose = function()
+{
+    // override in derived prototypes
 };

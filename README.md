@@ -157,12 +157,14 @@ The "public" methods of a Controller :
     init();
     
 Invoked automatically whenever the framework creates a new instance of the Controller (when its associated View is added to
-the applications HTML document). This method will invoke the subscribe()_-method (see below).
+the applications HTML document). This method will invoke the _subscribe()_- and _onInit()-methods (see below). It is recommended
+not to override this method in your inheriting prototypes, but override _onInit()_ instead.
 
     dispose();
     
 Invoked automatically whenever the associated View is removed from the applications HTML document. This method will unregister
-the messages the Controller subscribed to.
+the messages the Controller subscribed to and subsequently invoke _onDispose()_ (see below). It is recommended not to override
+this method in your inheriting prototypes, but override _onDispose()_ instead.
 
     subscribe();
     
@@ -197,6 +199,16 @@ This function should be overridden in your derived classes, like so :
     getModel( aModelName );
 
 Retrieve a model registered under given (String) aModelName from the framework.
+
+    onInit();
+
+Invoked by the _init()_-method when the Controller is constructed and linked to a View. You can override this method to execute
+custom code whenever your custom Controller initializes.
+
+    onDispose();
+
+Invoked by the _dispose()_-method when the Controller is unlinked from its View and will be disposed. You can override this
+method to execute custom clean up code whenever your custom Controller is disposed.
 
     broadcast( aMessageType, aMessageData );
 
