@@ -34,6 +34,12 @@ zMVC is built on top of zjslib, but should you choose not to use zjslib componen
 nor dictate your workflow. zMVC is very simple and written in ES5, working on anything from IE9 onwards out of the box.
 You can also integrate zMVC easily in ES6 modules should you choose to.
 
+# Installation
+
+You can get zMVC via NPM :
+
+    npm install zmvc
+
 # zMVC actors
 
 Here the actors of the framework are explained.
