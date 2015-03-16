@@ -257,15 +257,15 @@ Invoked whenever the framework has launched the Command registered to message ty
 contains the optional message payload (for instance a data structure). Override this function in your derived Commands. Keep in mind
 the command will not complete when this function body exists, you must explicitly call _commandComplete()_ (see below).
 
-    commandComplete();
+    done();
 
 To be invoked by the Command whenever its operations have completed successfully. If the Command is part of a MacroCommand, this
-will inform the MacroCommand that the Command has completed successfully and the next Command in the chain can be executed.
+will inform the MacroCommand that the next queued Command in the chain can be executed.
 
-    commandCancel();
+    cancel();
 
 To be invoked whenever the Command cannot complete its operations successfully (for instance: data is invalid, could not
-connect to a remote server, etc.). If the Command is part of a MacroCommand, this will _cancel the execution of the remaining
+connect to a remote server, etc.). If the Command is part of a MacroCommand, this will also _cancel the execution of the remaining
 subcommands_ (for instance in above example it makes no sense to send login data to a server if there is no internet connection).
 
     getModel( aModelName );

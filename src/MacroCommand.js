@@ -78,7 +78,7 @@ MacroCommand.prototype.run = function()
 {
     if ( this._subCommands.length === 0 )
     {
-        this.commandComplete();
+        this.done();
     }
     else {
         var commandRef = this._subCommands.shift();
@@ -89,15 +89,15 @@ MacroCommand.prototype.run = function()
         // override the complete and cancel handlers
         // so the MacroCommand can handle these states internally
 
-        command.commandComplete = function()
+        command.done = function()
         {
             this.run();
 
         }.bind( this );
 
-        command.commandCancel = function()
+        command.cancel = function()
         {
-            this.commandCancel();
+            this.cancel();
 
         }.bind( this );
 

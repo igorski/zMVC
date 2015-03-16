@@ -56,11 +56,11 @@ Command.prototype.broadcast = function( aMessageType, aMessageData )
 
 /**
  * invoke whenever the Command has completed its operation
- * so it can be garbage collected
+ * successfully
  *
  * @protected
  */
-Command.prototype.commandComplete = function()
+Command.prototype.done = function()
 {
     MVC.removeCommand( this );
 };
@@ -71,7 +71,7 @@ Command.prototype.commandComplete = function()
  *
  * @protected
  */
-Command.prototype.commandCancel = function()
+Command.prototype.cancel = function()
 {
     MVC.removeCommand( this ); // currently identical to complete
 };
