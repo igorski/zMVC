@@ -5,3 +5,5 @@
 *.log
 node_modules/
 intelliJ project/
+example/dist/
+example/node_modules/

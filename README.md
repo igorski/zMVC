@@ -42,7 +42,7 @@ You can get zMVC via NPM :
 
 # zMVC actors
 
-Here the actors of the framework are explained.
+Here the actors of the framework are explained. You can always reference the demo for in-depth usage.
 
 ## MVC
 
@@ -336,3 +336,14 @@ extend their prototypes. This is done using their "_extend()_"-methods. An examp
     Model.extend( CustomModel, Model );
 
     CustomModel.NAME = "UniqueIdentifierForCustomModel";
+
+## Demo / examples
+
+Still in doubt after having read above documentation ? Example content can be found in the _/example_-folder
+inside the repository's root. To run the example, first resolve its dependencies like so:
+
+    npm install
+
+After which you can run the following target inside the _Gruntfile.js_ to preview the demo in your browser.
+
+    grunt start
