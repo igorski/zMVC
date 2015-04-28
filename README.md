@@ -141,6 +141,12 @@ Instance properties :
 
 A reference to the Views _Controller_.
 
+A View is also an EventDispatcher, as such it can use a basic Event interface to broadcast and listen to messages :
+
+    view.addEventListener( eventType, callbackFunction );
+    view.removeEventListener( eventType ); // one callback per event type!
+    view.dispatchEvent( Event );
+
 ## Controller
 
 The Controller is the middleman between a _View_ and the framework. A Controllers prototype is paired with a specific Views
@@ -336,6 +342,49 @@ extend their prototypes. This is done using their "_extend()_"-methods. An examp
     Model.extend( CustomModel, Model );
 
     CustomModel.NAME = "UniqueIdentifierForCustomModel";
+
+The actors mentioned above can also call extended methods of their parent prototypes using the "_super()_"-method.
+The super method has the following signature when _called from a constructor_:
+
+    base( thisObj, var_args... )
+
+And the following signature when called from a function _extended from an existing prototype function of the same name_:
+
+    base( thisObj, "functionName", var_args... )
+
+Where _thisObj_ and _var_args_ are the same as above, but where String _functionName_ is the name of the function
+to call (should be identical to the prototype functions name).
+
+Example:
+
+    function BaseModel( name )
+    {
+        this.greet( name );
+    }
+
+    BaseModel.prototype.greet = function( name )
+    {
+        console.log( "BaseModel says hello to '" + name + "'" );
+    }
+
+    function CustomModel( name )
+    {
+        Model.base( this, name );
+    }
+    Model.extend( CustomModel, BaseModel );
+
+    CustomModel.prototype.greet = function( name )
+    {
+        console.log( "CustomModel says hello to '" + name + "'" );
+        Model.base( this, "greet", "bar" );
+    }
+
+    var customModelInstance = new CustomModel( "foo" );
+
+The above code will print the following in the console:
+
+    CustomModel says hello to 'foo'
+    BaseModel says hello to 'bar'
 
 ## Demo / examples
 

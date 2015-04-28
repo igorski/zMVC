@@ -3,9 +3,32 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>zMVC demo</title>
-    <script type="text/javascript" src="app.js"></script>
+    <link href="./styles.css" type="text/css" rel="stylesheet" media="screen" />
 </head>
 <body>
 
+    <!-- will be bound to FormView -->
+    <form id="form">
+        <label>Name:</label>
+        <input type="text" />
+        <input type="submit" value="Add" />
+    </form>
+
+    <!-- will be bound to PeopleView -->
+    <section id="persons">
+        <h2>Persons</h2>
+        <h4>Click on a person to remove him/her from the PersonModel</h4>
+        <ul data-role="container">
+            <li>Currently no person is registered inside the PersonModel</li>
+        </ul>
+    </section>
+
+    <!-- will be bound to MessageView -->
+    <section id="messages">
+
+    </section>
+
+    <!-- include the zMVC app -->
+    <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>

@@ -12,7 +12,6 @@
     "grunt-browser-sync": "^1.5.2",
     "grunt-browserify": "^3.0.1",
     "grunt-contrib-watch": "^0.6.1",
-    "zjslib" : "^0.1.0",
-    "pubsub-js": "^1.5.0"
+    "zMVC": "^0.5.2"
   }
 }

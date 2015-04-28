@@ -7,7 +7,6 @@ var Inheritance = require( "zjslib" ).Inheritance;
 var Disposable  = require( "zjslib" ).Disposable;
 var View        = require( "./View" );
 var MVC         = require( "./MVC" );
-var Pubsub      = require( "pubsub-js" );
 
 /**
  * @constructor
@@ -46,7 +45,7 @@ Controller.prototype.init = function()
 
     notifications.forEach( function( notification )
     {
-        this._tokens.push( Pubsub.subscribe( notification, handler ));
+        this._tokens.push( MVC.Pubsub.subscribe( notification, handler ));
 
     }.bind( this ));
 
@@ -67,7 +66,7 @@ Controller.prototype.dispose = function()
     // unregister from pubsub
     this._tokens.forEach( function( token )
     {
-        Pubsub.unsubscribe( token );
+        MVC.Pubsub.unsubscribe( token );
     });
 
     Inheritance.super( this, "dispose" );
@@ -128,7 +127,7 @@ Controller.prototype.getModel = function( aModelName )
  */
 Controller.prototype.broadcast = function( aMessageType, aMessageData )
 {
-    Pubsub.publish( aMessageType, aMessageData );
+    MVC.Pubsub.publish( aMessageType, aMessageData );
 };
 
 /**

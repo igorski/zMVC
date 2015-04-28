@@ -1,13 +1,13 @@
 /**
  * Created by igorzinken on 21-02-15.
  *
- * Model can be used to hold data
+ * a Model can be used to hold data
  * It has a unique identifier name which is used to
  * retrieve it from the MVC Object
  */
-module.exports = Model;
+var MVC = require( "./MVC" );
 
-var Pubsub = require( "pubsub-js" );
+module.exports = Model;
 
 function Model( aName )
 {
@@ -42,5 +42,5 @@ Model.prototype.getName = function()
  */
 Model.prototype.broadcast = function( aMessageType, aMessageData )
 {
-    Pubsub.publish( aMessageType, aMessageData );
+    MVC.Pubsub.publish( aMessageType, aMessageData );
 };

@@ -11,7 +11,7 @@ var zMVC = module.exports =
     View         : require( "./src/View" )
 };
 
-// add a convenience method to easily extend derived classes
+// add convenience methods to easily extend derived classes
 
 var Inheritance = require( "zjslib" ).Inheritance;
 
@@ -22,4 +22,28 @@ zMVC.Model.extend        =
 zMVC.View.extend         = function( aExtendedPrototype, aSuperPrototype )
 {
     Inheritance.extend( aExtendedPrototype, aSuperPrototype );
+};
+
+zMVC.Command.base      =
+zMVC.MacroCommand.base =
+zMVC.Controller.base   =
+zMVC.Model.base        =
+zMVC.View.base         = function( classInstance, optMethodName )
+{
+    var caller = arguments.callee.caller;
+
+    if ( caller.super ) {
+        return caller.super.constructor.apply( classInstance,
+                                               Array.prototype.slice.call( arguments, 1 ));
+    }
+    var args = Array.prototype.slice.call( arguments, 2 ), foundCaller = false;
+
+    for ( var ctor = classInstance.constructor; ctor;
+          ctor = ctor.super && ctor.super.constructor )
+    {
+        if ( ctor.prototype[ optMethodName ] === caller )
+            foundCaller = true;
+        else if ( foundCaller )
+            return ctor.prototype[ optMethodName ].apply( classInstance, args );
+    }
 };

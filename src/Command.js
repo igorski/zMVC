@@ -1,7 +1,6 @@
 module.exports = Command;
 
-var MVC    = require( "./MVC" );
-var Pubsub = require( "pubsub-js" );
+var MVC = require( "./MVC" );
 
 /**
  * Command provides an interface to execute (asynchronous)
@@ -51,7 +50,7 @@ Command.prototype.getModel = function( aModelName )
  */
 Command.prototype.broadcast = function( aMessageType, aMessageData )
 {
-    Pubsub.publish( aMessageType, aMessageData );
+    MVC.Pubsub.publish( aMessageType, aMessageData );
 };
 
 /**

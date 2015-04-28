@@ -46,9 +46,13 @@ module.exports = function( grunt )
         },
         // watches changes to the source code for running the browserify task automatically
         watch : {
-            dev : {
+            scripts : {
                 files: "src/**/*.js",
                 tasks: [ "browserify" ]
+            },
+            resources : {
+                files: "resources/**/*",
+                tasks: [ "copy" ]
             }
         }
     });
