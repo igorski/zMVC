@@ -16,7 +16,7 @@ Then run the following Grunt task:
     grunt start
 
 this task will launch a browser which will preview the application. You can also adjust the sources and monitor the changes
-in realtime as the task synchronizes a file watcher with the browser.
+in real-time as the task synchronizes a file watcher with the browser.
 
 ## Basic application outline
 
@@ -121,10 +121,10 @@ Objects or Function instances for your own custom models.
 Our application is very simple, as such we add three methods to make the Model "intelligent", we'd like to be able
 to:
 
- * retrieve all registered persons (_getPersons()_)
- * add a new person (_storePerson( name )_)
- * remove a person (_removePerson( name )_)
- * query whether a person has been registered (_hasPerson( name )_)
+ * retrieve all registered persons ( _getPersons()_ )
+ * add a new person ( _storePerson( name )_ )
+ * remove a person ( _removePerson( name )_ )
+ * query whether a person has been registered ( _hasPerson( name )_ )
 
 Also note that in the source code, the Model broadcasts a message whenever its contents are _mutated_ (e.g. change
 when a new person is added, or an existing person is removed) :
@@ -263,7 +263,7 @@ There are two commands for this application, namely _AddPersonCommand_ and _Remo
 
 #### AddPersonCommand
 
-As visible in _bootstrap.js_, AddPersonCommand is registered to be launched whenever _Notifications.ADD_PERSON_ is broadcast
+As configured in _bootstrap.js_, AddPersonCommand is registered to be launched whenever _Notifications.ADD_PERSON_ is broadcast
 over the framework. We have seen in _FormController_ that this message is broadcast along with a String name as its
 payload. The basic command looks like this :
 
@@ -309,6 +309,10 @@ person using "_storePerson( name )_" a notification message _PERSON_MODEL_UPDATE
 by the _PersonController_ so the updated PersonModel contents can be reflected inside the _PersonView_.
 
 #### RemovePersonCommand
+
+As configured in _bootstrap.js_ RemovePersonCommand is registered to be launched whenever _Notifications.REMOVE_PERSON_ is broadcast
+over the framework. We have seen in _PersonController_ that this message is broadcast along with a String name as its
+payload. The basic command looks like this :
 
     RemovePersonCommand.prototype.execute = function( aMessageType, aMessageData )
     {

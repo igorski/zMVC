@@ -1,4 +1,4 @@
-var zMVC = require( "zMVC" ).MVC;
+var MVC = require( "zMVC" ).MVC;
 
 var FormView          = require( "./views/Form.view" );
 var FormController    = require( "./views/Form.controller" );
@@ -11,12 +11,12 @@ var Notifications     = require( "./definitions/Notifications" );
 
 // 1. configure the framework
 
-zMVC.registerModel  ( new PersonModel() );
-zMVC.registerCommand( Notifications.ADD_PERSON,    require( "./commands/AddPersonCommand" ));
-zMVC.registerCommand( Notifications.REMOVE_PERSON, require( "./commands/RemovePersonCommand" ));
-zMVC.registerView   ( FormView,    FormController );
-zMVC.registerView   ( PersonView,  PersonController );
-zMVC.registerView   ( MessageView, MessageController );
+MVC.registerModel  ( new PersonModel() );
+MVC.registerCommand( Notifications.ADD_PERSON,    require( "./commands/AddPersonCommand" ));
+MVC.registerCommand( Notifications.REMOVE_PERSON, require( "./commands/RemovePersonCommand" ));
+MVC.registerView   ( FormView,    FormController );
+MVC.registerView   ( PersonView,  PersonController );
+MVC.registerView   ( MessageView, MessageController );
 
 // 2. bind the Views inside the DOM to their View/Controller pairs
 
