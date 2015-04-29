@@ -1,6 +1,6 @@
 {
   "name": "zmvc",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "A lightweight framework using both MVC and publish-subscribe patterns to link its tiers",
   "main": "zmvc.js",
   "repository": {
