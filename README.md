@@ -365,7 +365,7 @@ Example:
     BaseModel.prototype.greet = function( name )
     {
         console.log( "BaseModel says hello to '" + name + "'" );
-    }
+    };
 
     function CustomModel( name )
     {
@@ -377,7 +377,7 @@ Example:
     {
         console.log( "CustomModel says hello to '" + name + "'" );
         Model.base( this, "greet", "bar" );
-    }
+    };
 
     var customModelInstance = new CustomModel( "foo" );
 
@@ -396,3 +396,5 @@ inside the repository's root. To run the example, first resolve its dependencies
 After which you can run the following target inside the _Gruntfile.js_ to preview the demo in your browser.
 
     grunt start
+
+Consult the README.md file inside the _/example_-folder for a guide through the example application.
